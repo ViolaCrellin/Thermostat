@@ -78,17 +78,17 @@ describe("Thermostat", function() {
     it("Will return EnergyUsage as low when temperature below 18", function () {
       for (var i = 0; i < 3; i++){
       thermostat.decreaseTemp();}
-      expect(thermostat.energyUsage()).toEqual(Symbol.for('Low'));
+      expect(thermostat.energyUsage()).toEqual('Low');
     });
 
     it("Will return EnergyUsage as medium when temperature above 18", function () {
-      expect(thermostat.energyUsage()).toEqual(Symbol.for('Medium'));
+      expect(thermostat.energyUsage()).toEqual('Medium');
     });
 
     it("Will return EnergyUsage as high when temperature above 25", function () {
       for (var i = 0; i < 6; i++){
       thermostat.increaseTemp();}
-      expect(thermostat.energyUsage()).toEqual(Symbol.for('High'));
+      expect(thermostat.energyUsage()).toEqual('High');
     });
   });
 });

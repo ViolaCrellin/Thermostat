@@ -1,0 +1,24 @@
+
+body {
+  font-family: 'Audiowide';
+  font-size: 40px;
+  background-color: rgb(247, 240, 171);
+  background-size: cover;
+  padding-top: 10px;
+}
+
+.Low {
+  background-color: rgb(179, 255, 217);
+}
+
+.Medium {
+  background-color: rgb(247, 240, 171);
+}
+
+.High {
+  background-color: rgb(251, 157, 122);
+}
+
+h1 {
+  font-family: 'Audiowide'
+}
