@@ -1,25 +1,31 @@
 function Thermostat() {
   this.temp = 20;
-  this.minTemp = 10;
+  this.MIN_TEMP = 10;
+  this.MAX_TEMP = 25;
   this.isPowerSavingMode = true;
-  this.maxTemp = 25;
 }
 
+
+
 Thermostat.prototype.increaseTemp = function () {
-  this.temp +=1;
+  if (this.temp >= this.MAX_TEMP) {
+    return;
+  } else {
+    this.temp +=1;
+  }
 };
 
 Thermostat.prototype.decreaseTemp = function () {
-  if (this.temp <= this.minTemp) {
-    throw "Unrecordable temperature";
-    } else {
-  this.temp -=1;
+  if (this.temp <= this.MIN_TEMP) {
+    return;
+  } else {
+    this.temp -=1;
   }
 };
 
 Thermostat.prototype.switchMode = function () {
   this.isPowerSavingMode = !this.isPowerSavingMode;
-  this.maxTemp = (this.isPowerSavingMode === true) ? 25 : 32;
+  this.MAX_TEMP = (this.isPowerSavingMode === true) ? 25 : 32;
 };
 
 Thermostat.prototype.reset = function () {

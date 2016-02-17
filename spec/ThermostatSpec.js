@@ -1,5 +1,4 @@
 describe("Thermostat", function() {
-
   var thermostat;
 
   beforeEach(function(){
@@ -17,7 +16,7 @@ describe("Thermostat", function() {
     });
 
     it("Is has a max temperature, by default, of 25 as it is in powersaving mode", function () {
-      expect(thermostat.maxTemp).toEqual(25);
+      expect(thermostat.MAX_TEMP).toEqual(25);
     });
 
   });
@@ -27,6 +26,13 @@ describe("Thermostat", function() {
     it("Can have it's temperature increased", function () {
       thermostat.increaseTemp();
       expect(thermostat.temp).toEqual(21);
+    });
+
+    it("Cannot have it's temperature increased to above the maximum", function () {
+      var startingTemp = thermostat.temp;
+      for (var i = 0; i < (thermostat.MAX_TEMP - startingTemp); i++){
+      thermostat.increaseTemp();}
+      expect(thermostat.temp).toEqual(thermostat.MAX_TEMP);
     });
   });
 
@@ -39,9 +45,9 @@ describe("Thermostat", function() {
 
     it("Cannot have it's temperature decreased to below 10 degrees", function () {
       var startingTemp = thermostat.temp;
-      for (var i = 0; i < (startingTemp - thermostat.minTemp); i++){
+      for (var i = 0; i < (startingTemp - thermostat.MIN_TEMP); i++){
       thermostat.decreaseTemp();}
-      expect(function(){thermostat.decreaseTemp();}).toThrow("Unrecordable temperature");
+      expect(thermostat.temp).toEqual(thermostat.MIN_TEMP);
     });
   });
 
@@ -54,7 +60,7 @@ describe("Thermostat", function() {
 
     it("Will change the maximum temperature from powersaving 25 to non-powersaving at 31", function () {
       thermostat.switchMode();
-      expect(thermostat.maxTemp).toEqual(32);
+      expect(thermostat.MAX_TEMP).toEqual(32);
     });
   });
 
@@ -84,8 +90,5 @@ describe("Thermostat", function() {
       thermostat.increaseTemp();}
       expect(thermostat.energyUsage()).toEqual(Symbol.for('High'));
     });
-
-
   });
-
 });
