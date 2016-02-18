@@ -8,7 +8,7 @@ describe("Thermostat", function() {
   describe("#constructor", function(){
 
     it("Has a default of 20 degrees", function () {
-      expect(thermostat.temp).toEqual(20);
+      expect(thermostat.temperature).toEqual(20);
     });
 
     it("Is in powersaving mode by default", function () {
@@ -25,14 +25,14 @@ describe("Thermostat", function() {
 
     it("Can have it's temperature increased", function () {
       thermostat.increaseTemp();
-      expect(thermostat.temp).toEqual(21);
+      expect(thermostat.temperature).toEqual(21);
     });
 
     it("Cannot have it's temperature increased to above the maximum", function () {
-      var startingTemp = thermostat.temp;
+      var startingTemp = thermostat.temperature;
       for (var i = 0; i < (thermostat.MAX_TEMP - startingTemp); i++){
       thermostat.increaseTemp();}
-      expect(thermostat.temp).toEqual(thermostat.MAX_TEMP);
+      expect(thermostat.temperature).toEqual(thermostat.MAX_TEMP);
     });
   });
 
@@ -40,14 +40,14 @@ describe("Thermostat", function() {
 
     it("Can have it's temperature decreased", function () {
       thermostat.decreaseTemp();
-      expect(thermostat.temp).toEqual(19);
+      expect(thermostat.temperature).toEqual(19);
     });
 
     it("Cannot have it's temperature decreased to below 10 degrees", function () {
-      var startingTemp = thermostat.temp;
+      var startingTemp = thermostat.temperature;
       for (var i = 0; i < (startingTemp - thermostat.MIN_TEMP); i++){
       thermostat.decreaseTemp();}
-      expect(thermostat.temp).toEqual(thermostat.MIN_TEMP);
+      expect(thermostat.temperature).toEqual(thermostat.MIN_TEMP);
     });
   });
 
@@ -69,7 +69,7 @@ describe("Thermostat", function() {
     it("Will reset temperature to 20", function () {
       thermostat.increaseTemp();
       thermostat.reset();
-      expect(thermostat.temp).toEqual(20);
+      expect(thermostat.temperature).toEqual(20);
     });
   });
 
