@@ -4,30 +4,38 @@
     <meta charset="utf-8" />
     <title>&#x2605 Thermostar &#x2605</title>
     <link href='https://fonts.googleapis.com/css?family=Gruppo|Poppins|Open+Sans|Jura|Audiowide|Playball' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="index.css" type="text/css" >
+    <link rel="stylesheet" href="index1.css" type="text/css" >
   </head>
+
 
   <body>
     <section>
-      <h1 id="temperature"></h1>
-      <p>
-        <button id="up">+</button>
-        <button id="down">-</button>
-        <button id="reset">&#x21BB</button>
-        PowerSaving Mode: <span id="power-saving-status"></span>
-        <button id="power-saving-switch"></button>
-      </p>
+
+      <h1 id="temperature">
+        <h1 id="temperature"> <span>ThermoDynamiColour</span> </h1>
+      </h1>
+      <div class='controller'>
+        <h1> Controls </h1>
+        <div class='buttons'>
+          <button id="up"> +  </button>
+          <button id="down"> -  </button>
+          <button id="reset">&#x21BB</button>
+          <button id="power-saving-switch" text="Turn Power Saving Off"></button>
+        </div>
+      </div>
     </section>
     <script src="jquery-2.2.0.js"></script>
-    <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
+    <script src="src/thermostat.js"></script>
 
     <section>
-      <h1>Current temperature: <span id="current-temperature">20</span></h1>
+      <div class='city'>
+      <h1>Temperature where you are: <span id="current-temperature">20</span></h1>
         <form id="select-city">
-          <input id="current-city" type="text" placeholder="Enter a city"></input>
-          <input type="submit"></input>
+          <input id="current-city" type="text" placeholder="What city are you in?"></input>
+          <button id="findout"> Find out </button>
         </form>
+      </div>
     </section>
 
   </body>

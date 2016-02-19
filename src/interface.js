@@ -4,11 +4,20 @@ $( document ).ready(function () {
   function updateTemperature(){
     $("#temperature").text(thermostat.temperature+ ' \u2103');
     $("body").attr('class', thermostat.energyUsage());
+    $(".controller>h1").attr('class', thermostat.energyUsage());
+    $("#temperature").attr('class', thermostat.energyUsage());
+    $(".controller").attr('id', thermostat.energyUsage());
+    $(".controller").attr('id', thermostat.energyUsage());
+    $("button").attr('class', thermostat.energyUsage());
+    $(".city>h1").attr('class', thermostat.energyUsage());
+    $(".city").attr('id', thermostat.energyUsage());
+
   }
 
   $("#temperature").text(thermostat.temperature+ ' \u2103');
-  $("#power-saving-status").text(thermostat.isPowerSavingMode ? "on" : "off");
-  $("#power-saving-switch").text(!thermostat.isPowerSavingMode ? "on" : "off");
+  $("#power-saving-switch").text(!thermostat.isPowerSavingMode ? "Turn Power Saving On" : "Turn Power Saving Off");
+  $("#power-saving-switch").attr('class', !thermostat.isPowerSavingMode ? "off" : "on" );
+
 
   $("#up").click(function () {
     thermostat.increaseTemp();
@@ -27,8 +36,8 @@ $( document ).ready(function () {
 
   $("#power-saving-switch").click(function () {
     thermostat.switchMode();
-    $("#power-saving-status").text(thermostat.isPowerSavingMode ? "on" : "off");
-    $("#power-saving-switch").text(!thermostat.isPowerSavingMode ? "on" : "off");
+    $("#power-saving-switch").text(thermostat.isPowerSavingMode ? "Turn Power Saving On" : "Turn Power Saving Off");
+    $("#power-saving-switch").attr('class', !thermostat.isPowerSavingMode ? "off" : "on" );
   });
 
   function displayWeather(city) {
